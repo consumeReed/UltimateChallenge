@@ -5,8 +5,8 @@ public class Runes {
 	
 	static final ArrayList<String>runes = new ArrayList<String>(Arrays.asList("Sorcery","Precision","Domination","Resolve","Inspiration"));
 	
-	String primary;
-	String secondary;
+	static String primary = "";
+	static String secondary = "";
 	ArrayList<String> left;
 	ArrayList<String> right;
 
@@ -35,15 +35,36 @@ public class Runes {
 		for(int i = 0; i<10;i++)
 		{
 			Random random = new Random();
-			lr += random.nextInt(3);
+			if(i==0)
+				lr += random.nextInt(4);
+			else
+				lr += random.nextInt(3);
 		}
 		return lr;
+	}
+	
+	public static ArrayList<String> conv(String lr)
+	{
+		System.out.println(lr);
+		ArrayList<String> ls = new ArrayList<String>();
+		for(int i=0; i<lr.length();i++)
+		{
+			if(i<4)
+				ls.add(primary+i+lr.substring(i, i+1));
+			if(i>=4&&i<7)
+				ls.add(secondary+(i-3)+lr.substring(i, i+1));
+			if(i>=7)
+				ls.add(i+lr.substring(i, i+1));
+		}
+		
+		return ls;
 	}
 	
 	public static void main(String[] args)
 	{
 		Runes r = new Runes();
 		System.out.println(r.primary + " " + r.secondary);
-		System.out.println(r.lr());
+		//System.out.println(r.lr());
+		System.out.println(conv(r.lr()));
 	}
 }
