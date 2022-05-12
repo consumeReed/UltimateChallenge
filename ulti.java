@@ -6,13 +6,12 @@ import java.util.*;
 
 public class ulti {
 	
-	static final int MAX = 159;
+	//static final int MAX = 159;
 	String champ;
 	Character ability;
 	ArrayList<String> summonerSpells;
-	int runes;
+	ArrayList<String> runes;
 	ArrayList<String> items;
-	String role;
 	
 	public ulti()
 	{
@@ -20,6 +19,8 @@ public class ulti {
 		champ = ch.randomChamp();
 		ability = randomAbility();
 		summonerSpells = randomSummSpells();
+		Runes r = new Runes();
+		runes = r.conv(r.lr());
 	}
 	
 	public Character randomAbility()
@@ -71,6 +72,7 @@ public class ulti {
 		System.out.println(t.champ);
 		System.out.println(t.ability);
 		System.out.println(t.summonerSpells);
+		System.out.println(t.runes);
 	}
 
 }
