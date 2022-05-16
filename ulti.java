@@ -21,6 +21,8 @@ public class ulti {
 		summonerSpells = randomSummSpells();
 		Runes r = new Runes();
 		runes = r.conv(r.lr());
+		Items i = new Items();
+		items = i.getItems();
 	}
 	
 	public Character randomAbility()
@@ -73,6 +75,7 @@ public class ulti {
 		System.out.println(t.ability);
 		System.out.println(t.summonerSpells);
 		System.out.println(t.runes);
+		System.out.println(t.items);
 	}
 
 }
